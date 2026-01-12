@@ -17,7 +17,7 @@ iters = st.sidebar.slider("Iterations", 10, 200, 50)
 w = st.sidebar.slider("Inertia (w)", 0.1, 1.0, 0.5)
 
 # Load Data
-fixed, shiftable = load_data("project_benchmark_data.csv")
+fixed, shiftable = load_data("data/project_benchmark_data.csv")
 
 if st.button("Run Optimization"):
     optimizer = PSOOptimizer(fixed, shiftable, swarm_size=swarm_size, w=w)

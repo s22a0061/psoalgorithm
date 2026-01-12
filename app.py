@@ -41,10 +41,6 @@ if st.button("Run Optimization"):
     ax.set_ylabel("Power (kW)")
     ax.legend()
     st.pyplot(fig)
-
-    # Plotting Convergence
-    st.subheader("PSO Convergence (Fitness over Iterations)")
-    st.line_chart(history)
     
     st.subheader("Performance Summary")
 
@@ -59,4 +55,8 @@ if st.button("Run Optimization"):
     col1, col2 = st.columns(2)
     col1.metric("Money Saved", f"RM {savings:.2f}")
     col2.metric("Efficiency Gain", f"{improvement:.1f}%")
+
+    # Plotting Convergence
+    st.subheader("PSO Convergence (Fitness over Iterations)")
+    st.line_chart(history)
     

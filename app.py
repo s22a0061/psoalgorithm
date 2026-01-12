@@ -45,3 +45,18 @@ if st.button("Run Optimization"):
     # Plotting Convergence
     st.subheader("PSO Convergence (Fitness over Iterations)")
     st.line_chart(history)
+    
+    st.subheader("Performance Summary")
+
+    # 1. Calculate Baseline (using Preferred_Start_Hour from CSV)
+    baseline_positions = [task['Preferred_Start_Hour'] for task in shiftable]
+    _, base_cost, base_discomfort, _ = calculate_metrics(baseline_positions, fixed, shiftable)
+    
+    # 2. Compare with Optimized
+    savings = base_cost - cost
+    improvement = (savings / base_cost) * 100
+    
+    col1, col2 = st.columns(2)
+    col1.metric("Money Saved", f"RM {savings:.2f}")
+    col2.metric("Efficiency Gain", f"{improvement:.1f}%")
+    

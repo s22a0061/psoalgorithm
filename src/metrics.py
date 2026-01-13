@@ -1,7 +1,8 @@
 import numpy as np
 
 # Malaysian TOU Tariff
-# Peak: 8:00 AM - 10:00 PM (0.35 RM) | Off-Peak: 10:00 PM - 8:00 AM (0.20 RM)
+# Peak: 8:00 AM - 10:00 PM (0.35 RM)
+# Off-Peak: 10:00 PM - 8:00 AM (0.20 RM)
 TARIFF = [0.20]*8 + [0.35]*14 + [0.20]*2
 
 def calculate_metrics(particle_position, fixed_tasks, shiftable_tasks):
